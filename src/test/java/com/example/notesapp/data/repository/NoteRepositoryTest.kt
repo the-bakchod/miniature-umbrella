@@ -4,8 +4,8 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.notesapp.data.database.NoteDatabase
-import com.example.notesapp.data.model.Note
+import com.example.notesapp.data.NoteDatabase
+import com.example.notesapp.data.Note
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.After
@@ -40,7 +40,7 @@ class NoteRepositoryTest {
 
     @Test
     fun insertAndGetNote() = runBlocking {
-        val note = Note(title = "Test Note", content = "Test Content", folderId = null)
+        val note = Note(title = "Test Note", content = "Test Content")
         repository.insertNote(note)
         val allNotes = repository.allNotes.first()
         assertEquals(allNotes[0].title, "Test Note")
