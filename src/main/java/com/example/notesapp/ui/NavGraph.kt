@@ -28,7 +28,7 @@ fun NavGraph(
                     navController.navigate("note_editor/$noteId")
                 },
                 onNewNoteClick = {
-                    navController.navigate("note_editor")
+                    navController.navigate("note_editor/0")
                 }
             )
         }
